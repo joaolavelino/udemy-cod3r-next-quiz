@@ -231,7 +231,7 @@ const questions: QuestionModel[] = [
       AlternativeModel.wrong("Qatar"),
       AlternativeModel.right("Maldives"),
     ],
-    "The Maldives are the flattest country on Earth with an altitude span of 5 meters between the sea level and the (...) Mount Villingili. Yeah... 5 meters... "
+    "The Maldives are the flattest country on Earth with an altitude span of 5 meters between the sea level and the Mount (...) Mount Villingili. Yeah... 5 meters... "
   ),
   new QuestionModel(
     122,
@@ -257,14 +257,14 @@ const questions: QuestionModel[] = [
   ),
   new QuestionModel(
     124,
-    "Among the top-10 highest mountains, how much of them are not in the Himalaiyas",
+    "Among the top-10 tallest mountains, how much of them are not in the Himalaiyas",
     [
       AlternativeModel.wrong("5"),
       AlternativeModel.wrong("0"),
       AlternativeModel.wrong("3"),
       AlternativeModel.right("1"),
     ],
-    "The K2 is the second highest mountain on Earth with 8611m above sea level. It's located on the Karakoram Range, located in the Kashmir region, spanning the borders of Pakistan, China and India. It's the only mountain outside of the Himalayas that's on the top-10 list. But on the top-25 list, there are 10 mountains of the Karakoram Range, the other 16 are on the Himalayas. "
+    "The K2 is the second tallest mountain on Earth with 8611m above sea level. It's located on the Karakoram Range, located in the Kashmir region, spanning the borders of Pakistan, China and India. It's the only mountain outside of the Himalayas that's on the top-10 list. But on the top-25 list, there are 10 mountains of the Karakoram Range, the other 16 are on the Himalayas. "
   ),
   new QuestionModel(
     125,
@@ -275,7 +275,7 @@ const questions: QuestionModel[] = [
       AlternativeModel.wrong("Denali - United States"),
       AlternativeModel.right("Aconcagua - Argentina"),
     ],
-    "Both Austalia and Namibia are home to large deserts, but the most sparsely populated country in the world is Mongolia with 2 people/km2 spread and a combination of desert (Gobi Desert), mountains and steppes."
+    "The Aconcagua, with its 6961 meters above sea level, is the tallest mountain outside Asia, the tallest mountain on the western hemisphere and the tallest mountain on the southern hemisphere. "
   ),
   new QuestionModel(
     126,
