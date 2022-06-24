@@ -1,0 +1,21 @@
+.statement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(145deg, #745ae7, #614cc2);
+  box-shadow: 35px 35px 70px #5c47b8, -35px -35px 70px #7c61f8;
+  gap: 1rem;
+  @media screen and (max-width: 450px) {
+    flex-direction: column-reverse;
+    border-radius: 1.5;
+    padding: 1rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+  }
+}

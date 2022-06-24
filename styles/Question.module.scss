@@ -1,0 +1,12 @@
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alternatives {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

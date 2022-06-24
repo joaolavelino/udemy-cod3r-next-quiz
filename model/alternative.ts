@@ -16,6 +16,9 @@ export default class AlternativeModel {
   static wrong(value: string) {
     return new AlternativeModel(value, false);
   }
+  static buildFromObject(obj: AlternativeModel): AlternativeModel {
+    return new AlternativeModel(obj.value, obj.isRight, obj.isRevealed);
+  }
 
   get value() {
     return this.#value;

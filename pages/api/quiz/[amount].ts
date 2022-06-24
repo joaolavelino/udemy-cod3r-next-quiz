@@ -6,5 +6,5 @@ export default (req, res) => {
   const idList = questions.map((el) => el.id);
   const shuffledList = shuffle(idList);
   const quiz = shuffledList.slice(0, quizLength);
-  res.status(200).json({ quiz });
+  res.status(200).json(quiz);
 };

@@ -7,17 +7,20 @@ export default class QuestionModel {
   #alternatives: AlternativeModel[];
   #isRight: boolean;
   #isAnswered: boolean;
+  #info: string;
 
   constructor(
     id: number,
     statement: string,
     alternatives: AlternativeModel[],
+    info: string,
     isRight = false
   ) {
     this.#id = id;
     this.#statement = statement;
     this.#alternatives = alternatives;
     this.#isRight = isRight;
+    this.#info = info;
   }
 
   get id() {
@@ -32,11 +35,18 @@ export default class QuestionModel {
   get isRight() {
     return this.#isRight;
   }
+  get info() {
+    return this.#info;
+  }
   get isAnswered() {
     for (let alternative of this.#alternatives) {
       if (alternative.isRevealed) return true;
     }
     return false;
+  }
+
+  get isNotAnswered() {
+    return !this.isAnswered;
   }
 
   // ESTA FUNÇÃO ABAIXO FOI MINHA TENTATIVA DE RESOLUÇÃO SOZINHO, PORÉM HA UM PROBLEMA GRAVE COM ELA.. O LOOP FOREACH NAO PERMITE QUE O LOOP SEJA QUEBRADO NO MEIO (APENAS COM O LANÇAMENTO DE UM ERRO, O QUE NÃO É RECOMENDADO) ... PARA FAZER O LOOP PODER SER PARADO NO MEIO DO CAMINHO É NECESSARIO USAR UM LOOP SIMPLES COM FOR ( SÓ QUE COM ESSE LOOP EU NÃO VOU TER ACESSO AO ELEMENTO DO ARRAY) OU O FOR...OF (FORMA USADA NA RESOLUÇÃO DO EXERCÍCIO)
@@ -51,7 +61,8 @@ export default class QuestionModel {
   // }
 
   answer(chosenIndex: number): QuestionModel {
-    const gotItRight = this.alternatives[chosenIndex].isRight;
+    const gotItRight =
+      chosenIndex < 0 ? false : this.alternatives[chosenIndex].isRight;
     const revealedAlternatives = this.#alternatives.map((alt, index) => {
       const revealConditions = index === chosenIndex || alt.isRight;
       return revealConditions ? alt.reveal() : alt;
@@ -60,6 +71,7 @@ export default class QuestionModel {
       this.#id,
       this.#statement,
       revealedAlternatives,
+      this.#info,
       gotItRight
     );
   }
@@ -70,7 +82,21 @@ export default class QuestionModel {
       this.#id,
       this.#statement,
       shuffledAlternatives,
+      this.#info,
       this.#isRight
+    );
+  }
+
+  static buildFromObject(obj: QuestionModel): QuestionModel {
+    const alternatives = obj.alternatives.map((alt) =>
+      AlternativeModel.buildFromObject(alt)
+    );
+    return new QuestionModel(
+      obj.id,
+      obj.statement,
+      alternatives,
+      obj.info,
+      obj.isRight
     );
   }
 
@@ -79,6 +105,7 @@ export default class QuestionModel {
       id: this.#id,
       statement: this.#statement,
       alternatives: this.#alternatives.map((alt) => alt.toObject()),
+      info: this.#info,
       isAnswered: this.isAnswered,
       isRight: this.#isRight,
     };
