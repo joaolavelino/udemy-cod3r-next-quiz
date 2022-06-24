@@ -6,7 +6,7 @@ import Image from "next/image";
 import logo from "../public/gq-logo.png";
 import world from "../public/world.png";
 
-const BASE_URL = "https://geoquiz-puce.vercel.app/";
+const BASE_URL = "https://geoquiz-puce.vercel.app";
 
 export default function Home() {
   const [settings, setSettings] = useState({
