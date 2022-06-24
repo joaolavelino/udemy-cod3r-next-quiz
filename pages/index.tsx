@@ -1,6 +1,10 @@
 import styles from "../styles/Home.module.scss";
 import { useState } from "react";
 import Button from "../component/Button";
+import Layout from "../component/Layout";
+import Image from "next/image";
+import logo from "../public/gq-logo.png";
+import world from "../public/world.png";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -18,13 +22,25 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <main className={styles.main}>
         <div className={styles.bgContainer}>
-          <img src="/world.png" className={styles.bg} />
+          <Image
+            src={world}
+            className={styles.bg}
+            layout="intrinsic"
+            alt="world"
+          />
         </div>
         <section className={styles.content}>
-          <img src="/gq-logo.png" alt="logo" className={styles.logo} />
+          <div className={styles.logoContainer}>
+            <Image
+              src={logo}
+              alt="logo"
+              className={styles.logo}
+              layout="intrinsic"
+            />
+          </div>
           <h2 className={styles.title1}>WELCOME TO GEOQUIZ!</h2>
           <h3 className={styles.title2}>
             How well do you know the world you live in?
@@ -67,6 +83,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </div>
+    </Layout>
   );
 }

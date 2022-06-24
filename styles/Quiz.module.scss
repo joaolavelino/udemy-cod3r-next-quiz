@@ -23,7 +23,17 @@
 .questionNumber {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   z-index: 20;
   font-weight: 600;
+}
+
+.logoHeader {
+  width: 3rem;
+  cursor: pointer;
+  transition: 200ms;
+  &:hover {
+    transform: scale(1.1);
+  }
 }

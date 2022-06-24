@@ -5,6 +5,7 @@ import AlternativeModel from "../../../model/alternative";
 import Quiz from "../../../component/Quiz";
 import { useRouter } from "../../../node_modules/next/router";
 import Loader from "../../../component/Loader";
+import Layout from "../../../component/Layout";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -74,21 +75,23 @@ export default function QuizPage() {
   const isTheLastQuestion = progress == quizLength - 1;
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        {question ? (
-          <Quiz
-            question={question}
-            timerDuration={timerDuration}
-            lastQuestion={isTheLastQuestion}
-            sendAnsweredQuestion={onAnsweredQuestion}
-            toNextStep={onNextStep}
-            progress={progress}
-          />
-        ) : (
-          <Loader />
-        )}
-      </main>
-    </div>
+    <Layout>
+      <div className={styles.container}>
+        <main className={styles.main}>
+          {question ? (
+            <Quiz
+              question={question}
+              timerDuration={timerDuration}
+              lastQuestion={isTheLastQuestion}
+              sendAnsweredQuestion={onAnsweredQuestion}
+              toNextStep={onNextStep}
+              progress={progress}
+            />
+          ) : (
+            <Loader />
+          )}
+        </main>
+      </div>
+    </Layout>
   );
 }

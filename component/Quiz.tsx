@@ -3,6 +3,9 @@ import QuestionModel from "../model/question";
 import Question from "./Question";
 import Button from "./Button";
 import Loader from "./Loader";
+import Image from "next/image";
+import logo from "../public/gq-logo.png";
+import Link from "next/link";
 
 interface QuizProps {
   question: QuestionModel;
@@ -20,8 +23,15 @@ export default function Quiz(props: QuizProps) {
   }
 
   return (
-    <div className={styles.quiz}>
-      <div className={styles.questionNumber}>Question {props.progress + 1}</div>
+    <section className={styles.quiz}>
+      <header className={styles.questionNumber}>
+        <div className={styles.logoHeader}>
+          <Link href={"/"}>
+            <Image src={logo} layout="intrinsic" alt="logo" />
+          </Link>
+        </div>
+        <p>Question {props.progress + 1}</p>
+      </header>
       {props.question ? (
         <Question
           key={props.question.id}
@@ -39,6 +49,6 @@ export default function Quiz(props: QuizProps) {
         />
         <Button href="/" cancel text="Give up" />
       </div>
-    </div>
+    </section>
   );
 }

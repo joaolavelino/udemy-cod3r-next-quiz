@@ -8,6 +8,7 @@ interface ButtonProps {
   cancel?: boolean;
   outline?: boolean;
   small?: boolean;
+  external?: boolean;
 }
 
 export default function Button(props: ButtonProps) {
@@ -27,8 +28,18 @@ export default function Button(props: ButtonProps) {
     );
   }
 
+  function renderAnchor() {
+    return (
+      <a target="_blank" rel="noreferrer">
+        {renderButton()}
+      </a>
+    );
+  }
+
   return props.href ? (
-    <Link href={props.href}>{renderButton()}</Link>
+    <Link href={props.href}>
+      {props.external ? renderAnchor() : renderButton()}
+    </Link>
   ) : (
     renderButton()
   );

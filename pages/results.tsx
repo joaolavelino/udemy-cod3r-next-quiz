@@ -5,6 +5,8 @@ import ProgressBar from "../component/ProgressBar";
 import { useRouter } from "../node_modules/next/router";
 import styles from "../styles/Results.module.scss";
 import CountUp from "react-countup";
+import Image from "next/image";
+import world from "../public/world.png";
 
 export default function Results() {
   const router = useRouter();
@@ -35,7 +37,12 @@ export default function Results() {
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={styles.bgContainer}>
-          <img src="/world.png" className={styles.bg} />
+          <Image
+            src={world}
+            className={styles.bg}
+            layout="intrinsic"
+            alt="world"
+          />
         </div>
         <div className={styles.content}>
           <h1>Results</h1>
