@@ -7,7 +7,7 @@ import { useRouter } from "../../../node_modules/next/router";
 import Loader from "../../../component/Loader";
 import Layout from "../../../component/Layout";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://geoquiz-puce.vercel.app/";
 
 export default function QuizPage() {
   const [quizLength, setQuizLength] = useState<number>(0);
