@@ -4,7 +4,7 @@ import styles from "../styles/Layout.module.scss";
 export default function Layout({ children }) {
   return (
     <div className={styles.container}>
-      {children}
+      <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <h4>Created by Joao Avelino, using NextJS and Typescript</h4>
         <div>

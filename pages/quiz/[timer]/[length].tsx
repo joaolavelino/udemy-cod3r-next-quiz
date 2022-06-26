@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../../styles/Home.module.scss";
 import QuestionModel from "../../../model/question";
-import AlternativeModel from "../../../model/alternative";
 import Quiz from "../../../component/Quiz";
 import { useRouter } from "../../../node_modules/next/router";
 import Loader from "../../../component/Loader";
@@ -76,22 +74,18 @@ export default function QuizPage() {
 
   return (
     <Layout>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          {question ? (
-            <Quiz
-              question={question}
-              timerDuration={timerDuration}
-              lastQuestion={isTheLastQuestion}
-              sendAnsweredQuestion={onAnsweredQuestion}
-              toNextStep={onNextStep}
-              progress={progress}
-            />
-          ) : (
-            <Loader />
-          )}
-        </main>
-      </div>
+      {question ? (
+        <Quiz
+          question={question}
+          timerDuration={timerDuration}
+          lastQuestion={isTheLastQuestion}
+          sendAnsweredQuestion={onAnsweredQuestion}
+          toNextStep={onNextStep}
+          progress={progress}
+        />
+      ) : (
+        <Loader />
+      )}
     </Layout>
   );
 }

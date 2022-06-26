@@ -1,6 +1,6 @@
 import questions from "../questionBank";
 
-export default (req, res) => {
+export default function getQuestion(req, res) {
   const currentId = +req.query.id;
   const currentQuestion = questions.filter(
     (question) => question.id === currentId
@@ -13,4 +13,4 @@ export default (req, res) => {
       .status(404)
       .json({ error: "There's no question with the provided ID." });
   }
-};
+}

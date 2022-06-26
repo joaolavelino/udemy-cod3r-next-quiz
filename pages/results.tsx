@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../component/Button";
 import Loader from "../component/Loader";
 import ProgressBar from "../component/ProgressBar";
@@ -7,6 +7,7 @@ import styles from "../styles/Results.module.scss";
 import CountUp from "react-countup";
 import Image from "next/image";
 import world from "../public/world.png";
+import Layout from "../component/Layout";
 
 export default function Results() {
   const router = useRouter();
@@ -34,48 +35,46 @@ export default function Results() {
   };
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <div className={styles.bgContainer}>
-          <Image
-            src={world}
-            className={styles.bg}
-            layout="intrinsic"
-            alt="world"
-          />
-        </div>
-        <div className={styles.content}>
-          <h1>Results</h1>
-          {score ? (
-            <div className={styles.results}>
-              <div className={styles.scores}>
-                <div>
-                  <h3>
-                    Right answers: {score}/{length}
-                  </h3>
-                  <h3>
-                    Final score:{" "}
-                    <CountUp
-                      end={percentage}
-                      onStart={countUp}
-                      delay={0.2}
-                      duration={0.8}
-                    />
-                    %
-                  </h3>
-                </div>
-                <ProgressBar progress={progressBar} />
-              </div>
+    <Layout>
+      <div className={styles.bgContainer}>
+        <Image
+          src={world}
+          className={styles.bg}
+          layout="intrinsic"
+          alt="world"
+        />
+      </div>
+      <div className={styles.content}>
+        <h1>Results</h1>
+        {score ? (
+          <div className={styles.results}>
+            <div className={styles.scores}>
               <div>
-                <h4>{renderComment()}</h4>
+                <h3>
+                  Right answers: {score}/{length}
+                </h3>
+                <h3>
+                  Final score:{" "}
+                  <CountUp
+                    end={percentage}
+                    onStart={countUp}
+                    delay={0.2}
+                    duration={0.8}
+                  />
+                  %
+                </h3>
               </div>
-              <Button text="Try again?" href={"/"} />
+              <ProgressBar progress={progressBar} />
             </div>
-          ) : (
-            <Loader />
-          )}
-        </div>
-      </main>
-    </div>
+            <div>
+              <h4>{renderComment()}</h4>
+            </div>
+            <Button text="Try again?" href={"/"} />
+          </div>
+        ) : (
+          <Loader />
+        )}
+      </div>
+    </Layout>
   );
 }

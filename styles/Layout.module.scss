@@ -2,6 +2,7 @@
   position: relative;
   padding: 0 2rem;
   max-width: 100vw;
+  min-height: 100vh;
   overflow: hidden;
   @media screen and (max-width: 450px) {
     padding: 0 1rem;
@@ -11,9 +12,25 @@
   }
 }
 
+.main {
+  position: relative;
+  padding: 4rem 0;
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 450px) {
+    padding: 1rem 0;
+    min-height: calc(100vh - 115px);
+  }
+}
+
 .footer {
-  margin: 2rem 2rem;
+  margin: 0 2rem;
   border-top: 1px solid #745aea;
+  min-height: 75px;
   padding: 1rem 0;
   display: flex;
   align-items: center;
@@ -21,7 +38,8 @@
 
   @media screen and (max-width: 450px) {
     flex-direction: column;
-    margin: 2rem 1rem;
+    margin: 0 1rem;
+    min-height: 115px;
   }
 
   h4 {
